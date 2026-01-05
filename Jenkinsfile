@@ -14,7 +14,7 @@ pipeline {
         stage('docker build') {
             steps {
                 script{
-                  docker_build("notes-app","latest","amirshaikh993")
+                  docker_build("notes-app","1.1","amirshaikh993")
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         stage('Docker push') {
             steps {
                 script{
-                    docker_push("notes-app","latest","amirshaikh993")
+                    docker_push("notes-app","1.1","amirshaikh993")
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
         stage('deploy') {
             steps {
                 sh "docker rm -f notes-app || true"
-                sh 'docker run -d -p 8000:8000 --name notes-app notes-app:latest'
+                sh 'docker run -d -p 8000:8000 --name notes-app notes-app:1.1'
                 sh "docker ps"
             }
         }
