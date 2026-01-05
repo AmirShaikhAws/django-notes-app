@@ -28,11 +28,9 @@ pipeline {
         }
 
         
-        stage('deploy') {
+        stage('Deploy') {
             steps {
-                sh "docker rm -f notes-app || true"
-                sh 'docker run -d -p 8000:8000 --name notes-app notes-app:1.1'
-                sh "docker ps"
+                sh "docker compose up -d"
             }
         }
     }
