@@ -30,7 +30,7 @@ pipeline {
         
         stage('Deploy on agnets docker container') {
             steps {
-                sh "docker compose-down && docker compose-up -d"
+                sh "docker compose down && docker compose up -d"
             }
         }
     }
