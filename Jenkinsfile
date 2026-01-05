@@ -28,7 +28,7 @@ pipeline {
         }
 
         
-        stage('Deploy') {
+        stage('Deploy on agnets docker container') {
             steps {
                 sh "docker compose up -d"
             }
